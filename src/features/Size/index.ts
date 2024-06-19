@@ -1,2 +1,1 @@
-export * from './ListSizes'
-export * from './FormSize'
+export { default } from './FeatureSize'
