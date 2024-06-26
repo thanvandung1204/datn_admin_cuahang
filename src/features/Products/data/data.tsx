@@ -1,7 +1,9 @@
-import { ProductListActive, ProductListInActive } from '../components'
+
 
 import type { TabsProps } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
+import { ProductListActive } from '../components/ProductListActive'
+import { ProductListInActive } from '../components/ProductListInActive'
 
 export const items: TabsProps['items'] = [
   // {

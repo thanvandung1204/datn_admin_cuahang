@@ -1,5 +1,4 @@
 import { Breadcrumb, Button, PlusIcon } from '~/components'
-import { FormProduct, PreviewProduct, ProductListActive } from './components'
 import { IProduct, IRoleUser } from '~/types'
 import { RootState, useAppDispatch } from '~/store/store'
 
@@ -9,6 +8,9 @@ import { setOpenDrawer } from '~/store/slices'
 import { setProductsList } from '~/store/slices/Products/product.slice'
 import { useAppSelector } from '~/store/hooks'
 import { useEffect } from 'react'
+import { FormProduct } from './components/FormProduct'
+import { ProductListActive } from './components/ProductListActive'
+import PreviewProduct from './components/PreviewProduct'
 
 interface FeatureProductsProps {
   data: IProduct[]
