@@ -4,7 +4,8 @@ import { RootState, useAppDispatch } from '~/store/store'
 import { useAppSelector } from '~/store/hooks'
 import { setOpenDrawer } from '~/store/slices'
 import { IRoleUser } from '~/types'
-import { FormSliders, ListSliders } from './components'
+import { FormSliders } from './components/FormSliders'
+import { ListSliders } from './components'
 
 const SlidersFeature = () => {
   const dispatch = useAppDispatch()
