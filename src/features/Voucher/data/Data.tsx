@@ -1,5 +1,4 @@
-import { ListVoucher, ListVoucherActive } from "../components";
-
+import { ListVoucher, ListVoucherActive } from '../components'
 
 export const items = [
   { key: '1', label: 'Vouchers còn hoạt động', children: <ListVoucherActive /> },

@@ -8,8 +8,8 @@ import { RootState } from '~/store/store'
 import { messageAlert } from '~/utils/messageAlert'
 import { pause } from '~/utils/pause'
 import { useAppSelector } from '~/store/hooks'
-import useRenderVoucher from '../../hooks'
 import { useState } from 'react'
+import { useRenderVoucher } from '../../hooks'
 
 const ListVoucher = () => {
   const [currentPage, setCurrentPage] = useState(1)
