@@ -5,8 +5,8 @@ import { IRoleUser } from '~/types'
 import { Tabs } from 'antd'
 import { useAppSelector } from '~/store/hooks'
 import { setOpenDrawer } from '~/store/slices'
-import { items } from './data'
-import VoucherAdd from './components/FormVoucher/FormVoucher'
+import { items } from '../data'
+import VoucherAdd from '../components/FormVoucher/FormVoucher'
 
 // interface VoucherFeatureProps {
 //   data: IVoucher[]
