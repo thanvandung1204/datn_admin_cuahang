@@ -10,13 +10,19 @@ export const blogApi = createApi({
   endpoints: (builder) => ({
     getAllBlogs: builder.query<IBlogsDocs, number | string>({
       query: (page) => `/newsBlog?_page=${page}`,
-      providesTags: (result) => {
+      providesTags: (result: any) => {
         if (result) {
-          const final = [
-            ...result.docs.map(({ _id }) => ({ type: 'Blogs' as const, _id })),
-            { type: 'Blogs' as const, id: 'LIST' }
-          ]
-          return final
+          console.log(result, 'result')
+          if (result.message != 'Không có dữ liệu') {
+            const final = [
+              ...result.docs.map(({ _id }) => ({
+                type: 'Blogs' as const,
+                _id
+              })),
+              { type: 'Blogs' as const, id: 'LIST' }
+            ]
+            return final
+          }
         }
         return [{ type: 'Blogs', id: 'LIST' }]
       }
