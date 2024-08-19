@@ -74,7 +74,7 @@ const HardAnalytics = () => {
             <Card style={{ marginTop: '20px' }} title='Doanh Thu Theo Thời Gian'>
               <Row gutter={16}>
                 <Col span={12}>
-                  <Title level={4}>Doanh thu vùng này</Title>
+                  <Title level={4}>Doanh thu khoảng thời gian này</Title>
                   <Paragraph>{data['*theo thời gian tuỳ ý']['doanh thu vùng này']?.toLocaleString()} VNĐ</Paragraph>
                 </Col>
                 <Col span={12}>
