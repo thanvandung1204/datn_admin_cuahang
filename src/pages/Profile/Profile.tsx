@@ -11,6 +11,7 @@ import { useAppSelector } from '~/store/hooks'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useAppDispatch } from '~/store/store'
 
 const Profile = () => {
   const { user } = useAppSelector((state) => state.persistedReducer.auth)
@@ -33,7 +34,7 @@ const Profile = () => {
       gender: user.gender
     }
   })
-
+  const dispatch = useAppDispatch()
   const onHandleSubmit = (data: any) => {
     if (avatar.file) {
       const formData = new FormData()
@@ -49,7 +50,11 @@ const Profile = () => {
             _id: data._id
           })
             .unwrap()
-            .then(() => messageAlert('Cập nhật thành công', 'success'))
+            .then(() => {
+              // dispatch(refreshUser({ ...refreshToken.data, user }))
+              window.location.reload()
+              messageAlert('Cập nhật thành công', 'success')
+            })
             .catch(() => messageAlert('Cập nhật thất bại', 'error'))
         })
     } else {
