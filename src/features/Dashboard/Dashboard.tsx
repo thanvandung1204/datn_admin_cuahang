@@ -1,11 +1,11 @@
 import { BarChartSimple, MonthlyRevenue } from './components'
-import { CardFour, CardThree, CardTwo } from '~/components'
+import { CardFour, CardThree } from '~/components'
 import { useGetAnalystQuery, useGetAnalyticsQuery } from '~/store/services'
 
 import { CardOne } from '~/components/Cart/CardOne'
 import { Loader } from '~/common'
 import { ProductAnalytic } from './components/product-analytic'
-import { Button, Table } from 'antd'
+import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import ShowAnalitics from '~/components/Cart/CardThree/ShowAnalitics'
 
