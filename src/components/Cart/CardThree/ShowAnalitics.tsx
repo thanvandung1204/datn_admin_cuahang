@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { Button, CardTwo } from '~/components'
+import { Button, CardFour, CardThree, CardTwo } from '~/components'
 import {
   Button as ButtonAnt,
   Drawer,
@@ -16,7 +17,12 @@ import { DataAnalytics, IAnalticRevenueMonth, IAnalytics, IOrderDataType } from 
 import { RootState, useAppDispatch } from '~/store/store'
 import { setIdOrderCancel, setOrderData } from '~/store/slices/Orders'
 import { setOpenDrawer, setOpenModal } from '~/store/slices'
-import { useConfirmOrderMutation, useGetAnalystMonthQuery } from '~/store/services'
+import {
+  useConfirmOrderMutation,
+  useGetAnalystMonthQuery,
+  useGetAnalystQuery,
+  useGetAnalyticsQuery
+} from '~/store/services'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { CardOne } from '../CardOne'
@@ -34,6 +40,8 @@ import { messageAlert } from '~/utils/messageAlert'
 import { renderOrderStatus } from '~/features'
 import { useAppSelector } from '~/store/hooks'
 import { v4 as uuid } from 'uuid'
+import { ProductAnalytic } from '~/features/Dashboard/components/product-analytic'
+import { Loader } from '~/common'
 
 interface CardThreeProps {
   data: IAnalytics
@@ -45,7 +53,7 @@ type DataIndex = keyof IOrderDataType
 const ShowAnalitics = ({ data, data2 }: CardThreeProps) => {
   const dispatch = useAppDispatch()
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  // const [isModalOpen, setIsModalOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const [index2, setIndex2] = useState(0)
   const [statusOrder, setStatusOrder] = useState('pending')
@@ -54,7 +62,14 @@ const ShowAnalitics = ({ data, data2 }: CardThreeProps) => {
   const [searchedColumn, setSearchedColumn] = useState('')
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
 
+  const { data: dataAnalytics, isLoading: loadingTotalMoneys, isError: errorAnalytics } = useGetAnalyticsQuery()
+  const { data: dataAnalytics2, isLoading: loadingTotalMoneys2, isError: errorAnalytics2 } = useGetAnalystQuery()
   const { data: dataAnalytics3, isError: errorAnalytics3 } = useGetAnalystMonthQuery()
+  if (loadingTotalMoneys || loadingTotalMoneys2) return <Loader />
+
+  if (errorAnalytics || errorAnalytics2) return <div>error</div>
+
+  if (!dataAnalytics || !dataAnalytics2) return <Loader />
 
   const dataAhihih = [
     {
@@ -492,6 +507,11 @@ const ShowAnalitics = ({ data, data2 }: CardThreeProps) => {
         <CardTwo price={data2?.['doanh thu tháng này']['tổng doanh thu']} title={''} isCurrency={true} />
 
         <CardOne data={data2?.['doanh thu tháng này']} />
+        <ProductAnalytic dataAnalytics2={dataAnalytics2} dataAnalytics={dataAnalytics} />
+        <CardOne data={dataAnalytics2?.['doanh thu tháng này']} />
+        <CardThree data={dataAnalytics} data2={dataAnalytics2} />
+
+        <CardFour data={dataAnalytics.users} />
 
         <div className='rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark'>
           <div className='flex justify-between items-center'>
