@@ -60,7 +60,6 @@ const HardAnalytics = () => {
       fetchData(fromDate, toDate)
     }
   }
-  console.log(topSell, 'topSelltopSell')
   return (
     <div style={{ padding: '20px' }}>
       <p className='!text-black font-medium underline text-lg'>Thống kê theo khoảng thời gian</p>
