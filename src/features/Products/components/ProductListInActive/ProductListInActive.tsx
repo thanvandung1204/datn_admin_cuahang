@@ -54,7 +54,7 @@ export const ProductListInActive = () => {
       <div style={{ marginBottom: 16 }} className='flex items-center gap-3'>
         {hasSelected && (
           <Tooltip title={hasSelected ? `Đang chọn ${selectedRowKeys?.length} sản phẩm` : ''}>
-            <ButtonAntd
+            {/* <ButtonAntd
               size='large'
               danger
               type='primary'
@@ -64,7 +64,7 @@ export const ProductListInActive = () => {
               loading={loading}
             >
               Xóa tất cả
-            </ButtonAntd>
+            </ButtonAntd> */}
           </Tooltip>
         )}
       </div>
