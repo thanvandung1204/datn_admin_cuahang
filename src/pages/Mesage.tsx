@@ -33,20 +33,21 @@ const Mesage = () => {
     }
     fetchMessage()
   }, [])
-  const fetchConversations = async () => {
-    try {
-      const { data } = await axios.get('http://localhost:8000/conversations-details/' + conversation)
-      setMessages(data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // const fetchConversations = async () => {
+  //   try {
+  //     const { data } = await axios.get('http://localhost:8000/conversations-details/' + conversation)
+  //     setMessages(data)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   useEffect(() => {
     let intervalId: any
     if (conversation) {
       intervalId = setInterval(() => {
-        fetchConversations()
+        console.log('conversation', conversation)
+        //fetchConversations()
       }, 2000)
     }
     return () => {
@@ -83,7 +84,7 @@ const Mesage = () => {
       const { data } = await axios.post('http://localhost:8000/messages-cra', dataMessage)
       console.log(data, 'data')
       setChatMessage('')
-      fetchConversations()
+      //fetchConversations()
     } catch (error) {
       console.log(error)
     }

@@ -104,7 +104,7 @@ export const useRenderTopping = (toppings: ITopping[]) => {
                 title='Bạn có muốn xóa topping này?'
                 description='Bạn chắc chắn muốn xóa topping này?'
                 onConfirm={() => handleDelete(topping._id)}
-                onCancel={cancelDelete}
+                //onCancel={cancelDelete}
                 okButtonProps={{ style: { backgroundColor: '#3C50E0', color: '#fff' } }}
                 okText='Có'
                 cancelText='Không'

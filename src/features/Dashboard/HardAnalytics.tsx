@@ -108,7 +108,7 @@ const HardAnalytics = () => {
               />
             </Card>
           )}
-          {userBy && (
+          {/* {userBy && (
             <Card
               title='Khách hàng mua từ 2 đơn trở lên'
               style={{ marginTop: '20px', overflowY: 'scroll', height: '600px' }}
@@ -127,7 +127,7 @@ const HardAnalytics = () => {
                 )}
               />
             </Card>
-          )}
+          )} */}
         </div>
       )}
     </div>
